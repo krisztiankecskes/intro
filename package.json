@@ -11,7 +11,7 @@
   },
   "scripts": {
     "watch": "./node_modules/.bin/parcel ./src/index.html --out-dir docs --open",
-    "build": "./node_modules/.bin/parcel build ./src/index.html --out-dir docs --public-url ./",
+    "build": "npm run clean && ./node_modules/.bin/parcel build ./src/index.html --out-dir docs --public-url ./",
     "clean": "./node_modules/.bin/rimraf ./docs"
   }
 }
