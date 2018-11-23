@@ -1,5 +1,16 @@
+* {
+  box-sizing: border-box;
+}
+
 html, body {
   width: 100%;
   height: 100%;
-  background-color: #CCC;
+  margin: 0;
+  box-sizing: border-box;
+  background-color: #D06666;
+  color: #FFFFFF;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2em;
 }
