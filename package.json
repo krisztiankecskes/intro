@@ -5,6 +5,8 @@
   "author": "Krisztián Kecskés",
   "license": "MIT",
   "dependencies": {
+    "@babel/polyfill": "^7.0.0",
+    "axios": "^0.18.0",
     "parcel-bundler": "^1.10.3",
     "rimraf": "^2.6.2",
     "sass": "^1.15.1"
@@ -13,5 +15,8 @@
     "watch": "./node_modules/.bin/parcel ./src/index.html --out-dir docs --open",
     "build": "npm run clean && ./node_modules/.bin/parcel build ./src/index.html --out-dir docs --public-url ./",
     "clean": "./node_modules/.bin/rimraf ./docs"
+  },
+  "devDependencies": {
+    "babel-core": "^6.26.3"
   }
 }
