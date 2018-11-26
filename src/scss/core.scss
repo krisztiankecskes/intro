@@ -1,4 +1,12 @@
-@import url('https://fonts.googleapis.com/css?family=Anton');
+@import url('https://fonts.googleapis.com/css?family=Nunito:700');
+
+:root {
+  --header-height: 350px;
+  --header-background-color: #4682B4;
+  --profile-picture-size: 200px;
+
+  --tag-background-color: #FCB740;
+}
 
 * {
   box-sizing: border-box;
@@ -18,60 +26,70 @@ html, body {
 
 .header {
   width: 100%;
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  text-transform: uppercase;
-  &__profile-picture {
-    width: 150px;
-    height: 150px;
-    border-radius: 50%;
-    margin-bottom: 30px;
-  }
-  &__title {
-    font-family: 'Anton', sans-serif;
-    text-align: center;
-    margin: 0;
-    letter-spacing: 0.1em;
-    font-size: 3em;
-    color: #E85A4F;
-    text-shadow: 0 2px #CCCCCC;
-  }
-  &__subtitle {
-    font-size: 2.5em;
-    font-family: 'Anton', sans-serif;
-    color: #FFFFFF;
-    letter-spacing: 0.1em;
-    text-shadow: 1px 2px #555;
-    text-align: center;
-    background-color: #326DE6;
-    padding-left: 15px;
-    padding-right: 15px;
-    transform: rotate(5deg)
-  }
-  &__arrow {
-    border: solid #333333;
-    border-width: 0 20px 20px 0;
-    display: inline-block;
-    padding: 20px;    
-    transform: rotate(45deg)
-  }
-}
+  height: var(--header-height, 350px);
+  background: var(--header-background-color);
+  position: relative;
 
-.introduction-wrapper {
-  width: 100%;
-  height: 100%;
-  padding: 15px;
-
-  .introduction {
+  &::before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
     width: 100%;
-    height: 100%;
-    background-color: #FFF;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    height: var(--header-height, 350px);
+    transform: skewY(2deg);
+    -webkit-transform: skewY(2deg);
+    background-color: var(--header-background-color);
+    transform-origin: top left;
+    -webkit-transform-origin: top left;
+  }
+
+  &__wrapper {
+    position: relative;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    -webkit-transform: translate(-50%, -50%);
+  }
+
+  &__title {
+    position: relative;
+    color: #FFFFFF;
+    font-family: 'Nunito', sans-serif;
+    text-transform: uppercase;
+    margin: 0;
+    padding: 30px 15px 0px 15px;
+    font-size: 3em;
+    text-align: center;
+  }
+
+  &__subtitle {
+    position: relative;
+    color: #FFFFFF;
+    font-family: 'Nunito', sans-serif;
+    text-transform: uppercase;
+    margin: 0;
+    font-size: 1em;
+    text-align: center;
+    span {
+      padding: 2px 5px;
+      background-color: var(--tag-background-color);
+    }
+    span:nth-child(1), span:nth-child(2) {
+      display: inline-block;
+      margin-right: 5px;
+    }
+  }
+
+  &__profile-picture {
+    width: var(--profile-picture-size);
+    height: var(--profile-picture-size);
+    border-radius: 50%;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    top: calc(100% - var(--profile-picture-size) / 2 + 20px);
+    border: 5px solid #FFFFFF;
   }
 
 }
