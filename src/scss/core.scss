@@ -5,10 +5,11 @@
   /* Metrics */
   --base-font-size: 16px;
   --profile-picture-size: 200px;
+  --about-me-text-size: 20px;
   --header-height: 350px;
   /* Colors */
   --header-background-color: #4682B4;  
-  --tag-background-color: #FCB740;
+  --tag-background-color: #253C78;
 }
 
 * {
@@ -53,6 +54,9 @@ html, body {
     left: 50%;
     transform: translate(-50%, -50%);
     -webkit-transform: translate(-50%, -50%);
+    @media screen and (max-width: 550px) { 
+      top: 100px;
+    }
   }
 
   &__title {
@@ -64,6 +68,11 @@ html, body {
     padding: 30px 15px 0px 15px;
     font-size: 3em;
     text-align: center;
+    @media screen and (max-width: 540px) { 
+      font-size: 2.5em;
+      line-height: 40px;
+      padding-bottom: 24px;
+    }
   }
 
   &__subtitle {
@@ -77,10 +86,17 @@ html, body {
     span {
       padding: 2px 5px;
       background-color: var(--tag-background-color);
+      @media screen and (max-width: 550px) { 
+        display: block;
+      }
     }
     span:nth-child(1), span:nth-child(2) {
       display: inline-block;
       margin-right: 5px;
+      @media screen and (max-width: 550px) { 
+        display: block;
+        margin-right: 0;
+      }
     }
   }
 
@@ -111,8 +127,26 @@ html, body {
     margin: 0 0 15px 0;
   }
   &__text {
-    font-size: var(--base-font-size, 16px);
+    font-size: var(--about-me-text-size, 20px);
     line-height: 24px;
     font-family: 'Nunito Sans', sans-serif;
+    &--italic {
+      font-style: italic;
+    }
+    a {
+      color: #D36582;
+      text-decoration: none;
+    }
+    a:hover {
+      text-decoration: underline;
+      position: relative;
+    }
+  }
+  @media screen and (max-width: 1440px) {
+    padding-left: 15px;
+    padding-right: 15px;
+  }
+  @media screen and (max-width: 768px) { 
+    grid-template-columns: 1fr;
   }
 }
