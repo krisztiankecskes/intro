@@ -1,5 +1,8 @@
 import "@babel/polyfill";
+import React from 'react';
+import ReactDOM from 'react-dom';
 import axios from 'axios';
+import PostList from './components/PostList';
 
 const getAvatar = async function() {
 
@@ -19,6 +22,27 @@ const getAvatar = async function() {
 
 };
 
+const getFreshFeed = async() => {
+  try {
+    const mediumRssFeed = "https://medium.com/feed/@kozakrisz";
+		const rssToJsonApi = "https://api.rss2json.com/v1/api.json";
+		const data = { params: { rss_url: mediumRssFeed } };
+    const { data: { items } } =  await axios.get(rssToJsonApi, data);
+    if(items.length) {
+      generateArticleList(items.filter((item)=>item.categories.length));
+    }
+  } catch(e) {
+    console.log('Getting fresh feed from Medium is failed!');
+  }
+}
+
+const generateArticleList = (items) => {
+
+  ReactDOM.render(<PostList posts={items} />, document.querySelector('.posts'));
+
+}
+
 (function () {
   getAvatar();
+  getFreshFeed();
 })();

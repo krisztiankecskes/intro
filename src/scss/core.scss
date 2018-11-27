@@ -21,6 +21,7 @@ html, body {
   height: 100%;
   margin: 0;
   box-sizing: border-box;
+  -webkit-overflow-scrolling: touch;
 }
 
 .wrapper {
@@ -150,5 +151,37 @@ html, body {
   }
   @media screen and (max-width: 768px) { 
     grid-template-columns: 1fr;
+  }
+}
+
+.post-list {
+  width: 100%;
+  max-width: 1140px;
+  margin: 0 auto;
+  margin-bottom: 15px;
+  &__title {
+    font-size: 30px;
+    font-family: 'Nunito', sans-serif;
+    margin: 0 0 15px 0;
+    text-align: center;
+    @media screen and (max-width: 768px) { 
+      text-align: left;
+    }
+  }
+  .posts {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    grid-template-rows: 300px 300px;
+    grid-auto-rows: 300px;
+    grid-gap: 15px;
+  }
+  .post {
+    background: #ccc;
+    padding: 15px;
+    cursor: pointer;
+  }
+  @media screen and (max-width: 1440px) {
+    padding-left: 15px;
+    padding-right: 15px;
   }
 }
