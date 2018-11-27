@@ -179,6 +179,25 @@ html, body {
     background: #ccc;
     padding: 15px;
     cursor: pointer;
+    box-shadow: 2px 2px 5px #CCC;
+    position: relative;
+    &__title {
+      background-color: rgba(0,0,0,.4);
+      font-size: 20px;
+      text-align: center;
+      padding: 5px;
+      margin: 0;
+      color: #FFFFFF;
+      font-family: 'Nunito Sans', sans-serif;
+    }
+    &__overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-color: rgba(70,130,180,.2);
+    }
   }
   @media screen and (max-width: 1440px) {
     padding-left: 15px;

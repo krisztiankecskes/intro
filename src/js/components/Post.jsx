@@ -3,7 +3,6 @@ import React, { PureComponent } from 'react';
 class Post extends PureComponent {
 
   handleOnClick = link => () => {
-    console.log(link)
     window.open(link, '_blank');
   }
 
@@ -14,6 +13,10 @@ class Post extends PureComponent {
 
     return (
       <div className="post" onClick={this.handleOnClick(link)} style={{background: `url(${thumbnail})`, backgroundSize: 'cover', backgroundPosition: 'center center'}}>
+        <div className="post__title">
+          {title}
+        </div>
+        <div class="post__overlay"></div>
       </div>
     )
   }
